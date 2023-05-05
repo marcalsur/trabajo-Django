@@ -1,0 +1,20 @@
+{% extends 'inicio/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'inicio/css/index.css' %}">
+{% endblock %}
+
+{% block titulo %}Pedido{% endblock %}
+
+{% block encabezado %}
+<h2>Realiza tu pedido</h2>
+{% endblock %}
+
+{% block contenido %}
+<form action="{% url 'pedido' %}" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Enviar pedido</button>
+</form>
+{% endblock %}

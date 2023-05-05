@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from .forms import PedidoForm
+
 def index (request):
     print (request.method)
 
@@ -13,5 +15,14 @@ def menu(request):
 def nosotros(request):
     return HttpResponse(f"Quiene somos y sucursales")
 
-def contacto(request):
-    return HttpResponse(f"Formulario de contacto y link de Wpp")
+def pedido(request):
+    if request.method == "POST":
+        pedido_form = PedidoForm(request.POST)
+    else:
+        pedido_form = PedidoForm()
+    
+    context = {
+        'form': pedido_form
+    }
+
+    return render(request, 'inicio/pedido.html', context)
