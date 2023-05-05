@@ -1,0 +1,27 @@
+{% extends 'inicio/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'inicio/css/index.css' %}">
+{% endblock %}
+
+{% block encabezado %}
+<div id="logo">
+    <img src="{% static 'inicio/img/logo_trans_blanco_claro.png' %}" alt="logo" class="logo2">
+    <h1 class="titulo"> Empanadas y pizzas </h1>
+</div>
+{% endblock %}
+
+{% block contenido %}
+<section>
+    <h2>Las mejores pizzas y empanadas</h2>
+    <article>
+        <p>Venga y pruebe</p>
+    </article>
+</section>
+
+<section>
+    <h2>Un pizza</h2>
+    <!-- <img src="{% static 'aula_virtual/img/perrito.jpg' %}" alt="un perrito"> -->
+</section>
+{% endblock %}
