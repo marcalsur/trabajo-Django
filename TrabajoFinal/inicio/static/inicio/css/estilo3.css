@@ -1,0 +1,294 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+
+html{
+	font-size:62.5%;          /*Hacemos que 1rem sea equivalente a 10px*/
+    
+}
+
+/* img{
+height: 100px;
+float: left;
+} */
+
+#nosotros{
+    margin-top: 15px; 
+    color: black; 
+    font-size: 40px; 
+    grid-column: 2/4;
+    font-family: "Oswald", Sans-serif;
+    font-weight: 300;
+    line-height: 50px;
+}
+
+.local{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    float: left;
+    grid-row: 1/-1;
+    grid-column: 1/2;
+}
+.sucursal{
+    max-height: 300px;
+    padding: 10px 10px 0px 5px 
+}
+h1 {
+    text-decoration: underline;
+    padding: 0px 0px 15px 0px; 
+    grid-column: 2/4;
+    grid-row: 1/2;
+    justify-self: left;
+    align-self: center;
+    color: #EE3B24;
+    font-family: "Oswald", Sans-serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1.7rem;
+}
+
+
+#nosotros{
+    color: black; 
+    font-size: 20px; 
+    grid-column: 2/4;
+    margin-right: 40px;
+}
+.sec2 {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 10% 40% 50% ;
+    width: 100%;
+    height: 600px;
+    }
+.nav2{
+    background-color:rgb(125, 56, 50);
+    height: 100px;
+    display:grid;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    }
+
+#sucursales {
+        display:grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 10% 10% 35% 10% 35%;
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+        }
+
+       
+
+#mapa1{
+    grid-row: 2/3;
+    grid-column: 1/2;
+}
+
+#mapa2{
+    grid-row: 2/3;
+    grid-column: 2/3;
+}
+
+#mapa3{
+    grid-row: 4/5;
+    grid-column: 1/2;
+}
+
+#mapa4{
+    grid-row: 4/5;
+    grid-column: 2/3;
+}
+
+.mapa1{
+    grid-row: 3/4;
+    grid-column: 1/2;
+    justify-self: center;
+    width: 80%;
+    height: 100%;
+}
+
+.mapa2{
+    grid-row: 3/4;
+    grid-column: 2/3;
+    justify-self: center;
+    width: 80%;
+    height: 100%;
+}
+
+.mapa3{
+    grid-row: 5/6;
+    grid-column: 1/2;
+    justify-self: center;
+    width: 80%;
+    height: 100%;
+}
+
+.mapa4{
+    grid-row: 5/6;
+    grid-column: 2/3;
+    justify-self: center;
+    width: 80%;
+    height: 100%;
+        
+}
+
+.footer{
+            width: 100%;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }   
+        
+/*menu hamburguesa*/
+
+#menu, #menu-check{
+    display: none;
+}
+
+
+@media only screen and (max-width: 900px){
+
+    header nav .menu{
+        width: 100%;
+        display: inline-flex;
+    }
+}
+
+@media only screen and (max-width: 700px){
+  
+
+   #menu-check:not(:checked) ~ nav {
+    visibility:hidden;
+    position: absolute;
+   }
+
+   #menu-check:checked  ~ nav{
+    display: block;
+   }
+
+   #menu{
+    display: block;
+    color: white;
+    background-color:rgb(125, 56, 50);
+    font-size: 2.2em;
+    border-radius: 0.3em;
+    position: absolute;
+    right: 0.5em;
+    top: 3.5em;
+    font-family: 'Roboto Condensed', sans-serif;
+    z-index: 9999;
+   }
+
+   #menu:hover{
+    color: peru;
+    background-color:rgb(125, 56, 50);;
+   }
+
+   #menu-cerrar{
+    display: none;
+   }
+
+   #menu-check:checked ~ label #menu-abrir{
+    display: none;
+   }
+
+   #menu-check:checked ~ label #menu-cerrar{
+    display: block;
+   }
+
+   header nav ul{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 70%;
+    width: 100%;
+    background-color: rgb(125, 56, 50);
+    padding-top: 9.5em;
+    padding-right: 2.5em;
+    opacity: 0.8;
+    color: white;
+    font-size: 1.4em;
+    z-index: 500;
+   }
+
+   header nav ul a{
+    color: white;
+    background: none;
+   }
+
+   header nav ul, header nav ul li{
+    display: block;
+    text-align: right;
+   }
+
+   
+}
+html{
+	font-size:62.5%;          /*Hacemos que 1rem sea equivalente a 10px*/
+}
+
+header{
+    display: grid;
+    background-color: rgb(125, 56, 50);
+    width: 100%;
+    height: 125px; /*ver si es mejor otra escala*/
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: 50% 50%;
+    align-items: center;
+    
+}
+
+#logo{
+    grid-column: 1/3;
+    grid-row: 1/3;
+    text-align: center;
+        
+}
+
+.logo2{
+    width: 150px;
+    height: 90%;
+    
+}
+
+#nav{
+    grid-column: 3/6;
+    grid-row: 1/3;
+    word-wrap: break-word;
+    word-spacing: 3rem; /*espacio entre palabras*/
+    
+}
+
+nav ul{
+    display: inline-flex;
+    list-style-type: none;
+    
+}
+
+.menu{
+    font-family: 'Roboto Condensed', sans-serif;
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    font-size: 1.8rem;
+    letter-spacing: 1.2px; /*espacio entre letras*/
+    padding: 1em;
+    
+
+}
+
+.menu:hover{
+    color: peru;
+    font-weight: 400;
+    transition: all 0.5s ease;
+    
+}

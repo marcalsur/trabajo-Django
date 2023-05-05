@@ -1,0 +1,73 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&family=Silkscreen&family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap" rel="stylesheet"> -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Empanadas Mayoristas - Empanadas & Pizzas</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'inicio/favicon/icono.ico' %}" >
+    <link rel="stylesheet" href="{% static 'inicio/css/base.css' %}">
+    {% block extra_css %} {% endblock %}
+</head>
+
+<body>
+    <header>
+        {% block encabezado %} {% endblock %}
+    </header>
+
+    <nav class="nav">
+        <ul class="nav-lista">
+            <li class="nav-lista_item"><a href="{% url 'index' %}" class="nav-lista_item-link1"> Inicio </a></li>
+            <li class="nav-lista_item"><a href="{% url 'menu' %}" class="nav-lista_item-link1"> Menú </a></li>
+            <li class="nav-lista_item"><a href="{% url 'nosotros' %}" class="nav-lista_item-link1"> Sucursales y sobre nosotros </a></li>
+            <li class="nav-lista_item"><a href="{% url 'contacto' %}" class="nav-lista_item-link1"> Contacto y consultas </a></li>
+        </ul>
+    </nav>
+
+    <main>
+        {% block contenido %} {% endblock %}
+    </main>
+
+    <footer class="nav2">
+        <table>
+            <tr>
+                <div> <box-icon type='logo' name='whatsapp'>
+                        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+                        <a href="https://api.whatsapp.com/send?phone=2974737318" class="float" target="_blank">
+                    </box-icon>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAA8tJREFUaEPtmIGR1DAMRe8qACpgqQCogFAB1wGhAqAClgqACtir4KAClgqACggVABWA3o4FGo1tOU7umGNWM5rdxLasL33Ldk5PrrmcXnP/T44A/nUGjxn4nzJwU8A8ED0T3YjyfC8BnOQXRd6JvjfPi2KwBoUG8eBpcnyOMwB6LfpmziDfdwkAovxWFABLBCBb0fMeI70AiDjR8/JFXuxFoQnyWfSHKFRSSgH4UWbsTt49T/2bsfQAIOqjm4HoEcWpcWbAPEt6w4wB8MM5IOYC+JSiqXMSccAwcY8AhEw+NoPJ2J1WEHMA+MgTdZ+JHhCMwQ72VZoz0QqAdL8yE7yU/9tebwvjPIid9HsSzdECYCNGvhpDa0be++dBAAAgRWkBgAHlKJwfROGpFTYwhHbfFgXRt9v5JmlkPXQDoPyxcFWoEHtnza6NNbLDwsZxrU5VukYZsNH4KEYH5/woz3bx0XxrhSxsxcaLNFc1CxGA72KEiCC56PuySj82o9wm57CHj1BRs3Bf/mdLdQ2Apc9PA8TO/CvjRjViodt/O7Cb645dDEoNgE1jids5ACWwM3w/dB1FlZ45+h461QBAA848SGkh7aVNK5A6GJa+RiSD9PuQ+nYBsM7l+O+jxDNlVO8AjX4Wu7H2WIMq2WDXMtACAOOT6O00y6xzTANCS9FLA2BTjU8AJ2NryGoAIl7b9YLjO9HwHBMg3Ei7HmGKhaFGIVvGWg5vtr+CyF1QLqQRqmET+pXEZrZrEW/Fsu6GXMLPgoix6KDPXdMPB8kE7xF/JCdTJSD2BFycv5YBGwEcqR6qkoM5EDSxi6JjIQi5ndbu8kUKR0cJu51H68D65tdEkLxDcAiSii+hvv1PxwgAKdajdGsW1DiUA4iW2BKI3N6xlc5K3+reEgHYiCF7mSltaLUIQxv4bNeG9s/dL/yc1cxHAJjIZqFlMZfA4BhZ0dMta4LK5YUqpQWjWH100FwAfEUjmpclljrMEWa8BQAUInpNBhcgG2WsvRw1BSsCYO8E+Bb17/WfLx42syF1WilU20zICkfpb6L7Ts+x4b+vlj4cZKeIIuqPE9BpSKq0wjAAdqLnjUAYS5mENlYoErxj/2mSCEDuxlUzPEkjoHEAUAgHMe62VJ9BlAoDAC9NnPeDWo8SJafhqr+RNUXOdMIGVKWszpYagNxxAH4SYaKrESaaY9Jo17UOQhfmUDuznWdADQCHKdrVWX4jbkIPKhd00V/+T8k7bJQ2sNUBEFmduMv4VQyKFvFV+LBojiOAReFbYfAxAysEcZGJ3+b/1zHCYz6aAAAAAElFTkSuQmCC"/>
+                    <box-icon type='logo' name='facebook-square'>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.facebook.com/empanadasmayoristasok">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAXZJREFUaEPtWYFtwjAQhA3YoGxQugFMQEdgBJgAOgmMwAYwAp2g6QSFCeBOSqTIfTsOSfBbeksvEePEd3//zjsejzJv48zxj4xAagVNAc0KfALcFjZLDLLA/BvYUcIRCqEf3DBNDL6a/oIfH20J3JWAr2CIzg4pYAR6VlCVAr8gd4YxQd22Qseb0K+CwA3A1rBDQJ1dufq5Q5ITIHiuateG0FJLYFGGTVNqqCTwDdSxL0SVBL5AgMCktnTIzXFNU5UDvvA5ecBKRJMmsURgApR/TQlR+18dAYYJFYhtRiDWU9I4KYTUKsAyoXBY8O3LkrjeprhYCWzZl7SUCC2ZMSr69iEvy4GuBHxlfBYEGFZUQGpZEAgldhYEmMD71Apkv4waAQuh0gN9flbJqpSwHLAcsBz4HwOWxPDJy2ohNatQ4dkZxWxK3DFdQ8j7YSx0PsAjph3s/RnEzj1dCHCLyi1p6yOmHnAP/wg7Zh3ex+EZTAFToKMHHsXPbTFOodvHAAAAAElFTkSuQmCC"/>
+                        </a>
+                    </box-icon>
+                    <box-icon type='logo' name='gmail'>
+                        <a href="https://mail.google.com">
+                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAgBJREFUaEPtWIlNAzEQTCoAOggVhA6ACoAKCBUAHUAFQAVABdABoQNSAekAqAB2JBs5Zv2sH3wnOdIqF53XOzM79jk3nYz8Mx05/kkn0LqDvQO9A5kKdAtlCpidHurAnqrwll0pbYJtlfbpSncRAPAniplKXNP3GcUyDYc4C/XvKbSAqHtJ8UdIjgCSXig0e7P6Ff24FsORJZzT8FsmBV04tElwBJ5p0JGnJtQ4oXC2VYb3dzQEu6FYePIf7fscgXcaNAuAWCsSpdaGbRlXedTdNW9yBL4FCl7Q2DvBeG4oFIfynGW58RuYcwmgACyHBS61FABjoR4LBShOAPWllrJ3OQmHKgQ0gBhLuXaZWBJVCfgslWoZm1h1ApylcizThIBpKVxzD6ZYyzQlkArSl/cvFqoBXM/ZCUCJFcW8sMyxcxbpwI5amKeFSOCQhmfIR8R8RQjoSRaKyFZEYW7IlwL+oG7GnMOKEkBd7PEAILUULAMBzBNtEwIggacs9vpYS2nL2AfAZgS0PUKWsi1j26o5AZ+lOMsMkgBnKZdlBkvAtBSu9S4T2qwGYaEQSN/9TgDqiFXIkdzKFddO/VMfeiWZyqkTgHJLiv2AhK068Eq4DkxsrnejOBb4SLQgAPA4sW68DawFJHUNiPM6AbFkhRN6BwoLKp6ud0AsWeGE0XfgBwPNazHgEjQFAAAAAElFTkSuQmCC"/>
+                        </a>
+                    </box-icon>
+
+                    <br>
+                    <br>
+                    
+                    <h3>Derechos reservados</h3>
+                </div>
+            </tr>
+        </table>
+    </footer>
+
+</body>
+</html>
